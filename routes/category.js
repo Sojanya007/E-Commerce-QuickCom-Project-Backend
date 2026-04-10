@@ -5,8 +5,14 @@ var pool = require('./pool')
 
 /* GET home page. */
 
-router.get('/', (req, res) => {
-  res.send("Category API working ✅");
+router.get('/all', (req, res) => {
+  pool.query("SELECT * FROM category", (error, result) => {
+    if (error) {
+      res.status(500).json({ status: false, message: "DB Error" });
+    } else {
+      res.json(result);
+    }
+  });
 });
 
 router.post('/category_submit', upload.single('categoryicon'), function (req, res, next) {
