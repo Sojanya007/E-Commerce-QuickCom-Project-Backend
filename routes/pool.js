@@ -16,12 +16,13 @@ const pool = mysql.createPool({
 
 });
 
-pool.getConnection((err) => {
+pool.query((err) => {
   if (err) {
-    console.log("❌ DB Error:", err);
-  } else {
-    console.log("✅ DB Connected");
-    connection.release()
+    console.log("DB Error:", err.code);
+  }
+  else
+  {
+    console.log("DB Connected");
   }
 });
 
