@@ -5,16 +5,6 @@ var pool = require('./pool')
 
 /* GET home page. */
 
-router.get('/all', (req, res) => {
-  pool.query("SELECT * FROM category", (error, result) => {
-    if (error) {
-      res.status(500).json({ status: false, message: "DB Error" });
-    } else {
-      res.json(result);
-    }
-  });
-});
-
 router.post('/category_submit', upload.single('categoryicon'), function (req, res, next) {
     try {
         pool.query("insert into category(categoryname, categoryicon, created_at, updated_at, user_admin)values(?,?,?,?,?)", 
