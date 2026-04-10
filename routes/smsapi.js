@@ -10,8 +10,8 @@ router.post('/sendotp',function(req,res){
         url:'http://167.114.117.218/GatewayAPI/rest',
         qs:{
 
-            loginid: 'VIKSDIWS',
-            password: 'nis123@@',
+            loginid: process.env.SMS_LOGIN_ID,
+            password: process.env.SMS_PASSWORD,
             msg: req.body.otp,
 
             send_to: req.body.mobileno,
@@ -28,14 +28,14 @@ router.post('/sendotp',function(req,res){
          request(options, function (error, result, body){
             if(error){
                 console.log(error)
-                return (res.json({
+                return res.json({
                     result: false
-                }))
+                })
             }else{
                 console.log(result)
-                return(res.json({
+                return res.json({
                     result: true
-                }))
+                })
             }
          
         })
