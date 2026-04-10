@@ -25,4 +25,4 @@ pool.getConnection((err) => {
   }
 });
 
-module.exports = connection;
+module.exports = pool;
