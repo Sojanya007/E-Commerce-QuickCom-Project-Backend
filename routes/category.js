@@ -5,6 +5,10 @@ var pool = require('./pool')
 
 /* GET home page. */
 
+router.get('/', (req, res) => {
+  res.send("Category API working ✅");
+});
+
 router.post('/category_submit', upload.single('categoryicon'), function (req, res, next) {
     try {
         pool.query("insert into category(categoryname, categoryicon, created_at, updated_at, user_admin)values(?,?,?,?,?)", 
