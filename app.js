@@ -1,21 +1,6 @@
 require('dotenv').config();
 const mysql = require('mysql2');
-
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.error("DB ERROR:", err);
-  } else {
-    console.log("DB Connected");
-  }
-});
-
+ 
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -48,11 +33,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://e-commerce-quick-com-project-fronte.vercel.app"
-  ],
-  credentials: true
+  origin: "*"
 }))
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
