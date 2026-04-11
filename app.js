@@ -48,7 +48,11 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cors({
-  origin:"https://e-commerce-quick-com-project-fronte.vercel.app"
+  origin: [
+    "http://localhost:3000",
+    "https://e-commerce-quick-com-project-fronte.vercel.app"
+  ],
+  credentials: true
 }))
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
