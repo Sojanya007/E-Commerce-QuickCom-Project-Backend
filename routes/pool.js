@@ -9,7 +9,7 @@ const pool = mysql.createConnection({
   port: Number(process.env.DB_PORT) || 3306
 });
 
-pool.query((err) => {
+pool.query("SELECT 1",(err, result) => {
   if (err) {
     console.log("❌ DB ERROR:", err);
   } else {
