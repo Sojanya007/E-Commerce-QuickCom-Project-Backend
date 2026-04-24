@@ -23,6 +23,7 @@ pool.query((err) => {
   else
   {
     console.log("DB Connected");
+    Connection.release()
   }
 });
 

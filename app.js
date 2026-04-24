@@ -40,22 +40,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/category', categoryRouter);
-app.use('/subcategory', subCategoryRouter);
-app.use('/brand', brandRouter);
-app.use('/product', productRouter);
-app.use('/productdetail', productDetailRouter);
-app.use('/productpicture', productPictureRouter);
-app.use('/mainbanner', mainbannerRouter);
-app.use('/bankandotheroffers', bankandotheroffersRouter);
-app.use('/adoffers', adoffersRouter);
-app.use('/smsapi',smsapi);
+app.use('/api/users', usersRouter);
+app.use('/api/category', categoryRouter);
+app.use('/api/subcategory', subCategoryRouter);
+app.use('/api/brand', brandRouter);
+app.use('/api/product', productRouter);
+app.use('/api/productdetail', productDetailRouter);
+app.use('/api/productpicture', productPictureRouter);
+app.use('/api/mainbanner', mainbannerRouter);
+app.use('/api/bankandotheroffers', bankandotheroffersRouter);
+app.use('/api/adoffers', adoffersRouter);
+app.use('/api/smsapi',smsapi);
 
 
 
-app.use('/adminlogin', adminLoginRouter);
-app.use('/userinterface', userinterfaceRouter);
+app.use('/api/adminlogin', adminLoginRouter);
+app.use('/api/userinterface', userinterfaceRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
